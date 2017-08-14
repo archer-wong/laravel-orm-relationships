@@ -15,3 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/index', 'IndexController@index');
+Route::get('/learn/oneToOne', 'IndexController@oneToOne');
+Route::get('/learn/oneToMany', 'IndexController@oneToMany');
+Route::get('/learn/manyToMany', 'IndexController@manyToMany');
+Route::get('/learn/hasManyThrough', 'IndexController@hasManyThrough');
+Route::get('/learn/polymorphicRelations', 'IndexController@polymorphicRelations');
+Route::get('/learn/manyToManyPolymorphicRelations', 'IndexController@manyToManyPolymorphicRelations');
