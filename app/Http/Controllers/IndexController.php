@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\UserAccount;
 use App\Models\Post;
 use App\Models\Role;
+use App\Models\Country;
 
 class IndexController extends Controller
 {
@@ -42,6 +43,16 @@ class IndexController extends Controller
             echo $pivot . '<br>';
         }
         dd($roles, $users);
+    }
+
+    public function hasManyThrough(){
+        $country = Country::find(1);
+        $posts = $country->getPostsThroughUser;
+
+        echo 'Country#'.$country->name.'下的文章：<br>';
+        foreach($posts as $post){
+            echo '&lt;&lt;'.$post->title.'&gt;&gt;<br>';
+        }
     }
 
 }
