@@ -15,4 +15,10 @@ class Post extends Model
     public function author(){
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
+
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment','item');
+    }
+
 }

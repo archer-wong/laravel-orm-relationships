@@ -9,6 +9,8 @@ use App\Models\UserAccount;
 use App\Models\Post;
 use App\Models\Role;
 use App\Models\Country;
+use App\Models\Video;
+use App\Models\Comment;
 
 class IndexController extends Controller
 {
@@ -53,6 +55,15 @@ class IndexController extends Controller
         foreach($posts as $post){
             echo '&lt;&lt;'.$post->title.'&gt;&gt;<br>';
         }
+    }
+
+    public function polymorphicRelations(){
+        $video = Video::find(1);
+        $videoComments = $video->comments;
+        $comment = Comment::find(1);
+        $item = $comment->itemm;
+        $item2 = $comment->getItemm;
+        dd($videoComments, $item, $item2);
     }
 
 }
