@@ -21,4 +21,9 @@ class Post extends Model
         return $this->morphMany('App\Models\Comment','item');
     }
 
+    public function tags()
+    {
+        return $this->morphToMany('App\Models\Tag','taggable');
+    }
+
 }

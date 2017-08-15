@@ -11,6 +11,7 @@ use App\Models\Role;
 use App\Models\Country;
 use App\Models\Video;
 use App\Models\Comment;
+use App\Models\Tag;
 
 class IndexController extends Controller
 {
@@ -61,9 +62,17 @@ class IndexController extends Controller
         $video = Video::find(1);
         $videoComments = $video->comments;
         $comment = Comment::find(1);
-        $item = $comment->itemm;
-        $item2 = $comment->getItemm;
+        $item = $comment->item;
+        $item2 = $comment->getItem;
         dd($videoComments, $item, $item2);
+    }
+
+    public function manyToManyPolymorphicRelations(){
+        $post = Post::find(1);
+        $tags = $post->tags;
+        $tag = Tag::find(1);
+        $posts = $tag->posts;
+        dd($tags, $posts);
     }
 
 }
